@@ -3,3 +3,9 @@ Python libraries used in this project:
 fastapi
 
 pydantic
+
+typing
+
+decimal
+
+datetime
