@@ -11,3 +11,11 @@ decimal
 datetime
 
 enum
+
+sqlalchemy
+
+psycopg2
+
+python-dotenv
+
+os
