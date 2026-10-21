@@ -8,7 +8,7 @@ if TYPE_CHECKING:
     from .customer import Customer
 
 class Car(Base):
-    __tablename__ = "cars"
+    __tablename__ =  "cars"
     __table_args__ = (CheckConstraint("year >= 1900 AND year <= 2027", name="ck_cars_year_range"))
 
     id:                  Mapped[int] =             mapped_column(Integer, primary_key=True, autoincrement=True)
