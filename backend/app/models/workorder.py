@@ -10,6 +10,7 @@ from enums import WorkOrderStatus
 if TYPE_CHECKING:
     from .user import User
     from .appointment import Appointment
+    from .workorderparts import WorkOrderParts
 
 class WorkOrder(Base):
     __tablename__ =  "workorders"
@@ -30,5 +31,6 @@ class WorkOrder(Base):
     created_at:          Mapped[datetime] =        mapped_column(DateTime(timezone=True), server_default=func.now())
     updated_at:          Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
 
-    users:        Mapped[list["User"]] =        relationship(back_populates="workorders")
-    appointments: Mapped[list["Appointment"]] = relationship(back_populates="workorders")
+    users:          Mapped[list["User"]] =           relationship(back_populates="workorders")
+    appointments:   Mapped[list["Appointment"]] =    relationship(back_populates="workorders")
+    workorderparts: Mapped[list["WorkOrderParts"]] = relationship(back_populates="workorders")
