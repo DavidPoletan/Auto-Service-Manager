@@ -19,3 +19,7 @@ psycopg2
 python-dotenv
 
 os
+
+sqlalchemy
+
+enum
