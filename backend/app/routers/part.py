@@ -8,7 +8,7 @@ from backend.app.crud.part import (
     get_all_parts,
     create_part,
     update_part,
-    delete_part as delete_part_record,
+    delete_part as delete_part_record
 )
 
 router = APIRouter()
