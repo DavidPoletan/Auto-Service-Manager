@@ -33,12 +33,8 @@ def update_part(db: Session, part_id: int, part: PartUpdate):
     if db_part is None:
         return None
 
-    db_part.name =              part.name
-    db_part.manufacturer =      part.manufacturer
-    db_part.part_number =       part.part_number
-    db_part.unit_price =        part.unit_price
-    db_part.quantity_in_stock = part.quantity_in_stock
-    db_part.minimum_stock =     part.minimum_stock
+    for field, value in part.model_dump(exclude_unset=True, exclude={"updated_at"}).items():
+        setattr(db_part, field, value)
 
     db.commit()
     db.refresh(db_part)
