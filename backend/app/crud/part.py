@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 from backend.app.models.part import Part
-from backend.app.schemas.part import PartCreate, PartResponse, PartUpdate
+from backend.app.schemas.part import PartCreate, PartUpdate
 
 def get_part(db: Session, id: int):
     return db.get(Part, id)
@@ -27,8 +27,8 @@ def create_part(db: Session, part: PartCreate):
     return db_part
 
 
-def update_part(db: Session, part_id: int, part: PartUpdate):
-    db_part = db.get(Part, part_id)
+def update_part(db: Session, id: int, part: PartUpdate):
+    db_part = db.get(Part, id)
 
     if db_part is None:
         return None
@@ -42,8 +42,8 @@ def update_part(db: Session, part_id: int, part: PartUpdate):
     return db_part
 
 
-def delete_part(db: Session, part_id: int):
-    db_part = db.get(Part, part_id)
+def delete_part(db: Session, id: int):
+    db_part = db.get(Part, id)
 
     if db_part is None:
         return False
